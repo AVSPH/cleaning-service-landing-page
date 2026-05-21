@@ -7,3 +7,213 @@
   --color-brand-orange: #F27D26;
   --color-brand-orange-hover: #E06C15;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Shiny button system — gradient fill, glow shadow, lift on hover, animated sheen */
+.btn-shiny {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-image: linear-gradient(135deg, #F89048 0%, #F27D26 50%, #D85F0F 100%);
+  color: #ffffff;
+  box-shadow:
+    0 10px 25px -8px rgba(242, 125, 38, 0.55),
+    0 4px 10px -4px rgba(242, 125, 38, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 250ms ease;
+}
+
+.btn-shiny::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-shiny > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-shiny:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 18px 35px -8px rgba(242, 125, 38, 0.65),
+    0 8px 18px -6px rgba(242, 125, 38, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+  filter: brightness(1.05);
+}
+
+.btn-shiny:hover::before {
+  transform: translateX(120%);
+}
+
+.btn-shiny:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-shiny:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 0 6px rgba(242, 125, 38, 0.6),
+    0 18px 35px -8px rgba(242, 125, 38, 0.65);
+}
+
+/* Light variant — white background with subtle dark sheen */
+.btn-shiny-light {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-image: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  color: var(--color-brand-orange);
+  box-shadow:
+    0 10px 25px -8px rgba(0, 0, 0, 0.25),
+    0 4px 10px -4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-shiny-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(242, 125, 38, 0.18) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-shiny-light > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-shiny-light:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 18px 35px -8px rgba(0, 0, 0, 0.32),
+    0 8px 18px -6px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+.btn-shiny-light:hover::before {
+  transform: translateX(120%);
+}
+
+.btn-shiny-light:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Outline variant — transparent with white border, subtle white sheen */
+.btn-shiny-outline {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  transition:
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.btn-shiny-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-shiny-outline > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-shiny-outline:hover {
+  transform: translateY(-2px) scale(1.02);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 12px 28px -8px rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 1);
+}
+
+.btn-shiny-outline:hover::before {
+  transform: translateX(120%);
+}
+
+.btn-shiny-outline:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Nav link underline-grow effect */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-brand-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Soft float animation for hero decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
